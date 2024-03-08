@@ -1,0 +1,16 @@
+ /* Styles pour le panier */
+ .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.cart-item button {
+    cursor: pointer;
+}
+.like-button {
+    color: gray;
+}
+.liked {
+    color: red;
+}
