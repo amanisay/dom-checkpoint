@@ -1,16 +1,65 @@
- /* Styles pour le panier */
- .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.panier {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 800px;
+    margin: 20px auto;
+  }
+  
+  .liste-articles {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .article {
+    border: 1px solid #ccc;
+    padding: 10px;
     margin-bottom: 10px;
-}
-.cart-item button {
-    cursor: pointer;
-}
-.like-button {
-    color: gray;
-}
-.liked {
+    display: flex;
+  }
+  
+  .article img {
+    width: 100px;
+    margin-right: 10px;
+  }
+  
+  .quantite {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-moins, .btn-plus {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .prix {
+    margin-left: 10px;
+  }
+  
+  .btn-favori {
+    margin-left: auto;
+    color: #ccc;
+    border: none;
+  }
+  
+  .btn-favori:hover {
     color: red;
-}
+  }
+  
+  .btn-supprimer {
+    margin-left: 10px;
+    border: 1px solid red;
+    color: red;
+  }
+  
+  .total {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: right;
+  }
+  
+  .prix-total {
+    font-weight: bold;
+  }
+  

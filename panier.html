@@ -1,71 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="sylesheet.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier d'achat</title>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
-    <h1>Mon Panier d'Achat</h1>
-    <div id="cart">
-        <!-- Exemple d'article dans le panier -->
-        <div class="cart-item">
-            <span>Nom de l'article</span>
-            <button class="like-button">❤️</button>
-            <button class="remove-button">Supprimer</button>
-            <span>Prix: 10€</span>
-            <input type="number" value="1" min="1">
+<body style="background-color: bisque;">
+  <div class="panier">
+    <h2>Votre panier</h2>
+    <ul class="liste-articles">
+      <li class="article" data-id="1">
+        <img src="./13d4aebfb07d45c7975faacd39708a8a.jpg" alt="Article 1" style=" height: 100px;
+        width: 100px;">
+        <h3>Nom de l'article 1</h3>
+        <p>Description de l'article 1</p>
+        <div class="quantite">
+         
+          <input type="number" value="1">
+          
         </div>
-        <!-- Ajoutez d'autres articles ici -->
+        <span class="prix" data-prix-unitaire="10">10€</span>
+        <button class="btn-favori"><i class="fa fa-heart"></i></button>
+        <button class="btn-supprimer">Modifier</button>
+      </li>
+      <li class="article" data-id="2">
+        <img src="./c02b0ea89900b37e20d6b24ae82d0cc1.jpg" alt="Article 2" style=" height: 100px;
+        width: 100px;">
+        <h3>Nom de l'article 2</h3>
+        <p>Description de l'article 2</p>
+        <div class="quantite">
+          
+          <input type="number" value="2">
+         
+        </div>
+        <span class="prix" data-prix-unitaire="15">15€</span>
+        <button class="btn-favori"><i class="fa fa-heart"></i></button>
+        <button class="btn-supprimer">Modifier</button>
+      </li>
+    </ul>
+    <div class="total">
+      <p>Total:</p>
+      <span class="prix-total">35€</span>
     </div>
-    <p>Total: <span id="total-price">10€</span></p>
-
-    <script>
-        // Récupérez les éléments du DOM
-        const likeButtons = document.querySelectorAll('.like-button');
-        const removeButtons = document.querySelectorAll('.remove-button');
-        const quantityInputs = document.querySelectorAll('input[type="number"]');
-        const totalPriceElement = document.getElementById('total-price');
-
-        // Initialisez le prix total
-        let totalPrice = 10;
-
-        // Gérez les clics sur les boutons "❤️"
-        likeButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                button.classList.toggle('liked');
-            });
-        });
-
-        // Gérez les clics sur les boutons "Supprimer"
-        removeButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const cartItem = button.closest('.cart-item');
-                const itemPrice = parseFloat(cartItem.querySelector('span').textContent.split(' ')[1]);
-                totalPrice -= itemPrice;
-                cartItem.remove();
-                updateTotalPrice();
-            });
-        });
-
-        // Gérez les changements de quantité
-        quantityInputs.forEach((input) => {
-            input.addEventListener('input', () => {
-                const cartItem = input.closest('.cart-item');
-                const itemPrice = parseFloat(cartItem.querySelector('span').textContent.split(' ')[1]);
-                const newQuantity = parseInt(input.value);
-                const oldQuantity = parseInt(input.getAttribute('value'));
-                totalPrice += (newQuantity - oldQuantity) * itemPrice;
-                input.setAttribute('value', newQuantity);
-                updateTotalPrice();
-            });
-        });
-
-        // Mettez à jour le prix total affiché
-        function updateTotalPrice() {
-            totalPriceElement.textContent = totalPrice + '€';
-        }
-    </script>
+    <button class="add-article-btn">Ajouter un article</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
